@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import wave from './assets/waves/wave.svg'
+import ErrorMsg from './components/ErrorMsg';
 import Header from './components/Header'
 import Routes from './routes.jsx'
 
@@ -32,11 +33,12 @@ export default () => {
   return (
     <>
       <GlobalStyles />
-      
+
       <App>
-        <Header/>
-        
-        <Routes/>
+        <Header />
+        <ErrorMsg />
+
+        <Routes />
       </App>
     </>
   );
