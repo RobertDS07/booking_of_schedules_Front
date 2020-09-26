@@ -42,11 +42,11 @@ export default props => {
             return false
         }
 
-        const { register: token } = res.data.data
+        const { login: token } = res.data.data
         
         localStorage.setItem('authorization', token)
 
-        props.setLogged(true)
+        props.setLogged(token)
     }
 
     const register = async e => {
@@ -68,10 +68,10 @@ export default props => {
         }
 
         const { register: token } = res.data.data
-        
+
         localStorage.setItem('authorization', token)
 
-        props.setLogged(true)
+        props.setLogged(token)
     }
 
     return (
