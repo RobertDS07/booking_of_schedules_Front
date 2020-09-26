@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import axios from 'axios'
 
 import RegisterLogin from './components/RegisterLogin'
+import Main from './components/Main'
 
 export default () => {
   const [logged, setLogged] = useState(localStorage.getItem('authorization'))
@@ -18,7 +19,7 @@ export default () => {
       })
 
       const { checkToken } = await token.data.data
-      return await checkToken
+      return checkToken
 
     })(logged)
 
@@ -46,7 +47,7 @@ export default () => {
 
         <Route path='/home'>
           {!logged && <Redirect to='/' />}
-          <h1>home</h1>
+          <Main />
         </Route>
 
         <Route path='*'>

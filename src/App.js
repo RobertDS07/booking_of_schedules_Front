@@ -13,6 +13,9 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     font-family: 'Arvo', serif;
+    -webkit-scrollbar { 
+      display: none; 
+    }
   }
 `
 
@@ -22,7 +25,7 @@ const App = styled.main`
   background-image: url(${wave});
   background-repeat: no-repeat;
   display: grid;
-  grid-template-rows: 70px 1fr 1fr;
+  grid-template-rows: 70px 0.6fr 1fr;
   grid-template-areas:
   'header'
   'login'
