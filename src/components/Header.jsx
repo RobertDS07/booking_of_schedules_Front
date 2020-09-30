@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import whats from '../assets/images/whats.png'
@@ -26,11 +27,16 @@ const Header = styled.header`
     }
 `
 
-export default () => {
+export default props => {
+    const logout = () => {
+        localStorage.clear()
+        props.setLogged(false)
+    }
     return (
         <>
             <Header>
-                <h1>Bob's House</h1>
+                {!!props.setLogged && <button onClick={logout}>Logout</button>}
+                <h1><Link to='/'>Bob's House</Link></h1>
 
                 <a className="whats" href=''>
                     <img src={whats} alt="992605966"/>

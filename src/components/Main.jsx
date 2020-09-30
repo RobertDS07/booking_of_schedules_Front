@@ -37,8 +37,10 @@ export default () => {
     const getHours = async (produto, dia) => {
         const res = await axios.post(process.env.API || 'http://localhost:8081/graphql', {
             query: `
-            mutation{
-                checkTimes(produto: "${produto}", dia: "${dia}")
+            {
+                checkTimes(produto: "${produto}", dia: "${dia}") {
+                    hora
+                }
             }
             `
         })
@@ -76,8 +78,8 @@ export default () => {
                         <option value="PingPong">PingPong</option>
                     </select><br />
                     {!!horarios && horarios.map(hora =>
-                        <button key={hora} onClick={e => confirmHour(e.target.innerHTML)}>
-                            {hora}
+                        <button key={hora.hora} onClick={e => confirmHour(e.target.innerHTML)}>
+                            {hora.hora}
                         </button>
                     )}
                     <button className='confirm' onClick={e => markHour(e.target.value)}></button>

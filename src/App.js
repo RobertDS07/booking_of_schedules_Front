@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import wave from './assets/waves/wave.svg'
 import ErrorMsg from './components/ErrorMsg';
-import Header from './components/Header'
 import Routes from './routes.jsx'
 
 const GlobalStyles = createGlobalStyle`
@@ -38,7 +37,6 @@ export default () => {
       <GlobalStyles />
 
       <App>
-        <Header />
         <ErrorMsg />
 
         <Routes />
